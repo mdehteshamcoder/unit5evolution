@@ -1,3 +1,4 @@
+//starting for todo
 let url=`http://localhost:3000/task`;
 let response=fetchData(url);
 response.then((res)=>{
@@ -5,7 +6,7 @@ response.then((res)=>{
     res.forEach(element => {
         displayData(element);
     });
-    // call display function show data in dom
+    // this function is for show data  in when call dispaly function
 }).catch((err)=>{
     console.log(err,"Error in showing data data");
 })
@@ -13,14 +14,13 @@ response.then((res)=>{
 
 
 
-// function fetch data
+// this function is for  function fetch data
 
 async function fetchData(url){
    try {
     let res=await fetch(url);
     let data=res.json();
     return data;
-    // console.log(data);
 
    } catch (error) {
        console.log(error,"Error in fatching data");
@@ -29,7 +29,7 @@ async function fetchData(url){
 
 }
 
-// create display function
+// this function is for  create display function
 
 function displayData(data){
 
@@ -54,7 +54,6 @@ function displayData(data){
         try {
             let data= await fetch(`http://localhost:3000/task/${data.id}`);
             let tempdata=data.json();
-         //    console.log(tempdata);
          localStorage.setItem("tempData",JSON.stringify(tempdata));
 
         
@@ -65,7 +64,7 @@ function displayData(data){
 
         alert("Update Sucessfull")
      }
-     //udtae
+     //this function is for update
 
     let deletebtn=document.createElement("button");
     deletebtn.textContent="Delete";
@@ -74,7 +73,7 @@ function displayData(data){
          let res=await fetch(`http://localhost:3000/task/${data.id}`,{
              method:"delete"
          });
-         // updateDom();
+         // this function is for updateDom();
             
         } catch (error) {
             console.log(error, "Delete Error");
@@ -88,7 +87,7 @@ function displayData(data){
 
 }
 
-// function add item
+// this function is for function add item
 
 function addItem (){
 
